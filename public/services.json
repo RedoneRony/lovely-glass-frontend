@@ -1,0 +1,46 @@
+[
+    {
+      "id": "0",
+      "name": "Radiology",
+      "servicePrice": 400,
+      "description": "Radiology is the medical discipline that uses medical imaging to diagnose and treat diseases within the bodies of animals and humans.",
+      "img": "https://images.unsplash.com/photo-1581595219618-375a1a48d324?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1170&q=80"
+    },
+    {
+      "id": "1",
+      "name": "Hematology",
+      "servicePrice": 350,
+      "description": "Hematology is the study of blood and blood disorders. Hematologists and hematopathologists are highly trained healthcare providers who specialize in diseases of the blood and blood components.",
+      "img": "https://media.gettyimages.com/illustrations/blood-cells-travelling-in-vessel-illustration-id560039791?s=2048x2048"
+    },
+    {
+      "id": "2",
+      "name": "Neurology",
+      "servicePrice": 220,
+      "description": "Neurology is the branch of medicine concerned with the study and treatment of disorders of the nervous system.",
+      "img": "https://cdn.pixabay.com/photo/2016/11/01/08/16/brain-1787622_960_720.jpg"
+    },
+    {
+      "id": "3",
+      "name": "Gastroenterology",
+      "servicePrice": 370,
+      "description": "Gastroenterology is the study of the normal function and diseases of the esophagus, stomach, small intestine, colon and rectum, pancreas, gallbladder, bile ducts and liver.",
+      "img": "https://transform.octanecdn.com/crop/600x400/https://octanecdn.com/reidhealthorg/reidhealthorg_228947124.jpeg"
+    },
+    {
+      "id": "4",
+      "name": "Pulmonology",
+      "servicePrice": 200,
+      "description": "Pulmonology is a field of medicine that focuses specifically on diagnosing and treating disorders of the respiratory system.",
+      "img": "https://images.medicinenet.com/images/article/main_image/pulmonologist-respiratory-system.jpg"
+    },
+    {
+      "id": "5",
+      "name": "Cardiology",
+      "servicePrice": 150,
+      "description": "Cardiology is a branch of medicine that deals with the disorders of the heart as well as some parts of the circulatory system.",
+      "img": "https://www.genengnews.com/wp-content/uploads/2018/10/GENExclusive_Getty_758308075_KaterynaKon_SciencePhotoLibrary_GettyImages_Heart.jpg"
+    }
+
+  
+  ]

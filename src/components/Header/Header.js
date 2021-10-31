@@ -4,12 +4,12 @@ import { Navbar, Container, Nav, Button } from "react-bootstrap";
 import { LinkContainer } from "react-router-bootstrap";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faNotesMedical } from "@fortawesome/free-solid-svg-icons";
+import { faBus } from "@fortawesome/free-solid-svg-icons";
 import useAuth from "../../hooks/useAuth";
 import "./Header.css";
 function Header() {
   const { user, logout } = useAuth();
-  console.log(user.displayName);
+  console.log(user);
   return (
     // home page design
     <div className="header w-100">
@@ -17,17 +17,18 @@ function Header() {
         <Container>
           <LinkContainer to="/">
             <Navbar.Brand className="navbar-brand">
-              <FontAwesomeIcon icon={faNotesMedical} />
-              Doctors Hub
+              <FontAwesomeIcon icon={faBus} />
+              Goer Travel
             </Navbar.Brand>
           </LinkContainer>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="me-auto nav">
               <NavLink to="/">Home</NavLink>
-              <NavLink to="/contactus">Appointment</NavLink>
-              <NavLink to="/about">Doctors secrect </NavLink>
-              {user?.email ? (
+              <NavLink to="/myorder">My Order</NavLink>
+              <NavLink to="/manageallorder">Manage all Order </NavLink>
+              <NavLink to="/addservice">Add a New Tour Plan </NavLink>
+              {user?.providerData ? (
                 <Button onClick={logout} variant="light">
                   Logout
                 </Button>

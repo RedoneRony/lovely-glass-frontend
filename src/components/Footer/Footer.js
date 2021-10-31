@@ -4,7 +4,6 @@ import { Form, Button, NavLink } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlane } from "@fortawesome/free-solid-svg-icons";
 import { faFacebook } from "@fortawesome/free-brands-svg-icons";
-import image from "../../assets/images/enric-moreu-rIymmvOq3P8-unsplash.jpg";
 function Footer() {
   return (
     // footer design
@@ -46,14 +45,18 @@ function Footer() {
             <div className="col-xl-4 col-lg-4 mb-50">
               <div className="footer-widget">
                 <div className="footer-logo">
-                  <img src={image} alt="Second slide" />
+                  <img
+                    src="https://cdn.pixabay.com/photo/2017/01/28/02/24/japan-2014618_960_720.jpg"
+                    alt="Second slide"
+                  />
                 </div>
                 <div className="footer-text">
                   <p>
-                    Doctors Hub Are A Medical And Health Department Provider
-                    Institutions. Suitable For Healthcare, Medical, Doctor,
-                    Dental, Dentist, Pharmacy, Health And Any Related Medical
-                    Care Field.
+                    Goer is a Bangladesh-based business growth and destination
+                    firm. We are a social enterprise that combines social good
+                    with commercial prudence. Grants, partners, and our
+                    portfolio of venture businesses provide the majority of our
+                    funding.
                   </p>
                 </div>
               </div>

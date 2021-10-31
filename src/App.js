@@ -4,13 +4,15 @@ import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
 import Home from "./components/Home/Home";
 import Service from "./components/Service/Service";
-import About from "./components/About/About";
-import ContactUs from "./components/Appointment/Appointment";
+import ManageAllOrder from "./components/ManageAllOrder/ManageAllOrder";
+import MyOrder from "./components/MyOrder/MyOrder";
 import NotFound from "./components/NotFound/NotFound";
 import AuthProvider from "./context/AuthProvider";
 import PrivateRoute from "./components/PrivateRoute/PrivateRoute";
 import Login from "./components/Login/Login";
 import Registration from "./components/Registration/Registration";
+import AddService from "./components/AddService/AddService";
+import UpdateStatus from "./components/UpdateStatus/UpdateStatus";
 
 function App() {
   return (
@@ -34,11 +36,17 @@ function App() {
             <PrivateRoute path="/service/:serviceId">
               <Service></Service>
             </PrivateRoute>
-            <PrivateRoute path="/contactus">
-              <ContactUs></ContactUs>
+            <PrivateRoute path="/myorder">
+              <MyOrder></MyOrder>
             </PrivateRoute>
-            <PrivateRoute path="/about">
-              <About></About>
+            <PrivateRoute path="/manageallorder">
+              <ManageAllOrder></ManageAllOrder>
+            </PrivateRoute>
+            <PrivateRoute path="/addservice">
+              <AddService></AddService>
+            </PrivateRoute>
+            <PrivateRoute path="/order/update/:id">
+              <UpdateStatus></UpdateStatus>
             </PrivateRoute>
             {/* not found page route */}
             <Route path="*">

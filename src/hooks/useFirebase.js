@@ -19,6 +19,7 @@ function useFirebase() {
   const [name, setName] = useState("");
   const [photo, setPhoto] = useState("");
   const [password, setPassword] = useState("");
+  const [isLoading, setIsLoading] = useState(true);
 
   const auth = getAuth();
   const googleProvider = new GoogleAuthProvider();
@@ -56,6 +57,7 @@ function useFirebase() {
       if (user) {
         setUser(user);
       }
+      setIsLoading(false);
     });
     return () => unsubscribe;
   }, []);
@@ -100,6 +102,7 @@ function useFirebase() {
     signInWithEmail,
     signInUsingGoogle,
     logout,
+    isLoading,
   };
 }
 export default useFirebase;

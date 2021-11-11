@@ -14,7 +14,7 @@ function ManageAllOrder() {
   const [allOrder, setAllOrder] = useState("");
   console.log(allOrder);
   useEffect(() => {
-    fetch("https://scary-barrow-52373.herokuapp.com/order/")
+    fetch("http://localhost:5000/order/")
       .then((response) => response.json())
       .then((data) => {
         setAllOrder(data);
@@ -24,7 +24,7 @@ function ManageAllOrder() {
   const handleDeleteOrder = (id) => {
     const proceed = window.confirm("Are you sure, you want to delete?");
     if (proceed) {
-      const url = `https://scary-barrow-52373.herokuapp.com/order/${id}`;
+      const url = `http://localhost:5000/order/${id}`;
       fetch(url, {
         method: "DELETE",
       })

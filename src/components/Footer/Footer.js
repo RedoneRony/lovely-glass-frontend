@@ -3,160 +3,173 @@ import "./Footer.css";
 import { Form, Button, NavLink } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlane } from "@fortawesome/free-solid-svg-icons";
-import { faFacebook } from "@fortawesome/free-brands-svg-icons";
+import {
+  faFacebook,
+  faTwitter,
+  faPinterest,
+  faLinkedin,
+} from "@fortawesome/free-brands-svg-icons";
+// import { faFacebook } from "@fortawesome/free-solid-svg-icons";
 function Footer() {
   return (
     // footer design
-    <div className="footer-section">
-      <div className="container">
-        <div className="footer-cta pt-5 pb-5">
-          <div className="row">
-            <div className="col-xl-4 col-md-4 mb-30">
-              <div className="single-cta">
-                <i className="fas fa-map-marker-alt"></i>
-                <div className="cta-text">
-                  <h4>Find us</h4>
-                  <span>1010 Avenue, sw 54321, Dhaka</span>
-                </div>
-              </div>
-            </div>
-            <div className="col-xl-4 col-md-4 mb-30">
-              <div className="single-cta">
-                <i className="fas fa-phone"></i>
-                <div className="cta-text">
-                  <h4>Call us</h4>
-                  <span>9876543210 0</span>
-                </div>
-              </div>
-            </div>
-            <div className="col-xl-4 col-md-4 mb-30">
-              <div className="single-cta">
-                <i className="far fa-envelope-open"></i>
-                <div className="cta-text">
-                  <h4>Mail us</h4>
-                  <span>mail@info.com</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div className="footer-content pt-5 pb-5">
-          <div className="row">
-            <div className="col-xl-4 col-lg-4 mb-50">
-              <div className="footer-widget">
-                <div className="footer-logo">
-                  <img
-                    src="https://cdn.pixabay.com/photo/2017/01/28/02/24/japan-2014618_960_720.jpg"
-                    alt="Second slide"
-                  />
-                </div>
-                <div className="footer-text">
-                  <p>
-                    Goer is a Bangladesh-based business growth and destination
-                    firm. We are a social enterprise that combines social good
-                    with commercial prudence. Grants, partners, and our
-                    portfolio of venture businesses provide the majority of our
-                    funding.
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div className="col-xl-4 col-lg-4 col-md-6 mb-30">
-              <div className="footer-widget">
-                <div className="footer-widget-heading">
-                  <h3>Useful Links</h3>
-                </div>
-                <ul>
-                  <li>
-                    <NavLink href="#">Home</NavLink>
-                  </li>
-                  <li>
-                    <NavLink href="#">about</NavLink>
-                  </li>
-                  <li>
-                    <NavLink href="#">services</NavLink>
-                  </li>
-                  <li>
-                    <NavLink href="#">portfolio</NavLink>
-                  </li>
-                  <li>
-                    <NavLink href="#">Contact</NavLink>
-                  </li>
-                  <li>
-                    <NavLink href="#">About us</NavLink>
-                  </li>
-                  <li>
-                    <NavLink href="#">Our Services</NavLink>
-                  </li>
-                  <li>
-                    <NavLink href="#">Expert Team</NavLink>
-                  </li>
-                  <li>
-                    <NavLink href="#">Contact us</NavLink>
-                  </li>
-                  <li>
-                    <NavLink href="#">Latest News</NavLink>
-                  </li>
-                </ul>
-              </div>
-            </div>
-            <div className="col-xl-4 col-lg-4 col-md-6 mb-50">
-              <div className="footer-widget">
-                <div className="footer-widget-heading">
-                  <h3>Subscribe</h3>
-                </div>
-                <div className="footer-text mb-25">
-                  <p>
-                    Don’t miss to subscribe to our new feeds, kindly fill the
-                    form below.
-                  </p>
-                </div>
-                <div className="subscribe-form">
-                  <Form>
-                    <Form.Control type="email" placeholder="Enter email" />
-                    <Button>
-                      <FontAwesomeIcon icon={faPlane} />
-                    </Button>
-                  </Form>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div className="copyright-area">
+    <footer className="new_footer_area bg_color">
+      <div className="new_footer_top">
         <div className="container">
           <div className="row">
-            <div className="col-xl-6 col-lg-6 text-center text-lg-left">
-              <div className="copyright-text">
-                <p>Copyright &copy; 2021, All Right Reserved</p>
+            <div className="col-lg-3 col-md-6">
+              <div
+                className="f_widget company_widget wow fadeInLeft"
+                data-wow-delay="0.2s"
+                style={{
+                  visibility: "visible",
+                  animationDelay: "0.2s",
+                  animationName: "fadeInLeft",
+                }}
+              >
+                <h3 className="f-title f_600 t_color f_size_18">
+                  Get in Touch
+                </h3>
+                <p>Don’t miss any updates of our products.!</p>
+                <Form
+                  action="#"
+                  className="f_subscribe_two mailchimp"
+                  novalidate="true"
+                  _lpchecked="1"
+                >
+                  <Form.Control type="email" placeholder="Enter email" />
+                  <button className="btn btn_get btn_get_two">Subscribe</button>
+                  <p
+                    className="mchimp-errmessage"
+                    style={{ display: "none" }}
+                  ></p>
+                  <p
+                    className="mchimp-sucmessage"
+                    style={{ display: "none" }}
+                  ></p>
+                </Form>
               </div>
             </div>
-            <div className="col-xl-6 col-lg-6 d-none d-lg-block text-right">
-              <div className="footer-menu">
-                <ul>
+            <div className="col-lg-3 col-md-6">
+              <div
+                className="f_widget about-widget pl_70 wow fadeInLeft"
+                data-wow-delay="0.4s"
+                style={{
+                  visibility: "visible",
+                  animationDelay: "0.4s",
+                  animationName: "fadeInLeft",
+                }}
+              >
+                <h3 className="f-title f_600 t_color f_size_18">Download</h3>
+                <ul className="list-unstyled f_list">
                   <li>
-                    <NavLink href="#">Home</NavLink>
+                    <a href="#">Company</a>
                   </li>
                   <li>
-                    <NavLink href="#">Terms</NavLink>
+                    <a href="#">Android App</a>
                   </li>
                   <li>
-                    <NavLink href="#">Privacy</NavLink>
+                    <a href="#">ios App</a>
                   </li>
                   <li>
-                    <NavLink href="#">Policy</NavLink>
+                    <a href="#">Desktop</a>
                   </li>
                   <li>
-                    <NavLink href="#">Contact</NavLink>
+                    <a href="#">Projects</a>
+                  </li>
+                  <li>
+                    <a href="#">My tasks</a>
                   </li>
                 </ul>
               </div>
             </div>
+            <div className="col-lg-3 col-md-6">
+              <div
+                className="f_widget about-widget pl_70 wow fadeInLeft"
+                data-wow-delay="0.6s"
+                style={{
+                  visibility: "visible",
+                  animationDelay: "0.6s",
+                  animationName: "fadeInLeft",
+                }}
+              >
+                <h3 className="f-title f_600 t_color f_size_18">Help</h3>
+                <ul className="list-unstyled f_list">
+                  <li>
+                    <a href="#">FAQ</a>
+                  </li>
+                  <li>
+                    <a href="#">Term &amp; conditions</a>
+                  </li>
+                  <li>
+                    <a href="#">Reporting</a>
+                  </li>
+                  <li>
+                    <a href="#">Documentation</a>
+                  </li>
+                  <li>
+                    <a href="#">Support Policy</a>
+                  </li>
+                  <li>
+                    <a href="#">Privacy</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div className="col-lg-3 col-md-6">
+              <div
+                className="f_widget social-widget pl_70 wow fadeInLeft"
+                data-wow-delay="0.8s"
+                style={{
+                  visibility: "visible",
+                  animationDelay: "0.8s",
+                  animationName: "fadeInLeft",
+                }}
+              >
+                <h3 className="f-title f_600 t_color f_size_18">redoneIT</h3>
+                <div className="f_social_icon">
+                  <a href="#" className="faFacebook">
+                    {" "}
+                    <FontAwesomeIcon icon={faFacebook} />
+                  </a>
+                  <a href="#" className="fab fa-twitter">
+                    <FontAwesomeIcon icon={faTwitter} />
+                  </a>
+                  <a href="#" className="fab fa-linkedin">
+                    <FontAwesomeIcon icon={faLinkedin} />
+                  </a>
+
+                  <a href="#" className="fab fa-pinterest">
+                    <FontAwesomeIcon icon={faPinterest} />
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className="footer_bg">
+          <div className="footer_bg_one"></div>
+          <div className="footer_bg_two"></div>
+        </div>
+      </div>
+      <div className="footer_bottom">
+        <div className="container">
+          <div className="row align-items-center">
+            <div className="col-lg-6 col-sm-7">
+              <p className="mb-0 f_400">
+                © redoneIT Inc.. 2021 All rights reserved.
+              </p>
+            </div>
+            <div className="col-lg-6 col-sm-5 text-right">
+              <p>
+                Made with <i className="icon_heart"></i> in{" "}
+                <a href="#">redoneIT</a>
+              </p>
+            </div>
           </div>
         </div>
       </div>
-    </div>
+    </footer>
   );
 }
 

@@ -20,14 +20,17 @@ function Service({ history }) {
   const [cost, setCost] = useState("");
   const [description, setDescription] = useState("");
   const { user } = useAuth();
-  const placeBook = useRef();
+  const productName = useRef();
   const userName = useRef();
+  const userEmail = useRef();
+  const address = useRef();
+  const phoneNumber = useRef();
   const costBook = useRef();
   const dateBook = useRef();
   const serviceDescription = useRef();
 
   useEffect(() => {
-    fetch("https://scary-barrow-52373.herokuapp.com/addService/")
+    fetch("http://localhost:5000/addService/")
       .then((response) => response.json())
       .then((data) => {
         setServicePage(data);
@@ -41,22 +44,28 @@ function Service({ history }) {
 
   // handle add service
   const handlePlaceOrder = (e, user) => {
-    const placeName = placeBook.current.value;
+    const productname = productName.current.value;
     const username = userName.current.value;
+    const useremail = userEmail.current.value;
+    const Address = address.current.value;
+    const phonenumber = phoneNumber.current.value;
     const costbook = costBook.current.value;
     const datebook = dateBook.current.value;
     const servicedescription = serviceDescription.current.value;
     const status = "pending";
     const placeOrder = {
-      placeName,
+      productname,
       username,
+      useremail,
+      Address,
+      phonenumber,
       costbook,
       datebook,
       servicedescription,
       status,
     };
 
-    fetch("https://scary-barrow-52373.herokuapp.com/order", {
+    fetch("http://localhost:5000/order", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -77,7 +86,7 @@ function Service({ history }) {
     // service page
     <div>
       <Container>
-        <h1 className="service">Book Plan Details</h1>
+        <h1 className="service">Product Details </h1>
       </Container>
       {individualService &&
         individualService.map((item, i) => (
@@ -91,13 +100,13 @@ function Service({ history }) {
                   <ListGroup vertical>
                     <ListGroup.Item>
                       <h2>
-                        <span>Destination: </span>
+                        <span>Name: </span>
                         {item.serviceName}
                       </h2>
                     </ListGroup.Item>
                     <ListGroup.Item>
                       <p style={{ float: "left" }}>
-                        Ticket Cost: {item.serviceCharge}
+                        Price: {item.serviceCharge}
                       </p>
                     </ListGroup.Item>
                     <ListGroup.Item>
@@ -111,17 +120,22 @@ function Service({ history }) {
             </Container>
           </>
         ))}
-      <div>
+      <div className="placeorder">
         <Container>
           <h2 className="service">Please Submit the Form For Place Order</h2>
         </Container>
-        <Form className="addServiceForm" onSubmit={handlePlaceOrder}>
+        <Form className="placeServiceForm" onSubmit={handlePlaceOrder}>
           <Form.Group className="mb-3" controlId="formBasicEmail">
-            <Form.Label>Tour Destination</Form.Label>
-            <Form.Control type="text" value={place} readOnly ref={placeBook} />
+            <Form.Label>Sunglass Name</Form.Label>
+            <Form.Control
+              type="text"
+              value={place}
+              readOnly
+              ref={productName}
+            />
           </Form.Group>
           <Form.Group className="mb-3" controlId="formBasicEmail">
-            <Form.Label>Name</Form.Label>
+            <Form.Label>User Name</Form.Label>
             <Form.Control
               type="text"
               value={user.displayName}
@@ -129,17 +143,36 @@ function Service({ history }) {
               readOnly
             />
           </Form.Group>
-
-          <Form.Group className="mb-3" controlId="formBasicPassword">
-            <Form.Label>Tour Cost</Form.Label>
+          <Form.Group className="mb-3" controlId="formBasicEmail">
+            <Form.Label>User Email</Form.Label>
             <Form.Control
               type="text"
-              placeholder="Tour Cost"
+              value={user.email}
+              ref={userEmail}
+              readOnly
+            />
+          </Form.Group>
+
+          <Form.Group className="mb-3" controlId="formBasicPassword">
+            <Form.Label>Price</Form.Label>
+            <Form.Control
+              type="text"
+              placeholder="Cost"
               value={cost}
               ref={costBook}
               readOnly
             />
           </Form.Group>
+
+          <Form.Group className="mb-3" controlId="formBasicPassword">
+            <Form.Label>Address</Form.Label>
+            <Form.Control type="text" placeholder="Address" ref={address} />
+          </Form.Group>
+          <Form.Group className="mb-3" controlId="formBasicPassword">
+            <Form.Label>Phone Number</Form.Label>
+            <Form.Control type="text" placeholder="Cost" ref={phoneNumber} />
+          </Form.Group>
+
           <Form.Group className="mb-3" controlId="formBasicPassword">
             <Form.Label>Select Date</Form.Label>
             <Form.Control

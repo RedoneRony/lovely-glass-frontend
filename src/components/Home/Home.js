@@ -16,7 +16,7 @@ function Home() {
 
   console.log(services);
   useEffect(() => {
-    fetch("https://scary-barrow-52373.herokuapp.com/addService/")
+    fetch("http://localhost:5000/addService/")
       .then((response) => response.json())
       .then((data) => {
         setServices(data);
@@ -30,41 +30,41 @@ function Home() {
         <Carousel.Item interval={1000}>
           <img
             className="d-block w-100 carousel-img"
-            src="https://cdn.pixabay.com/photo/2016/03/04/19/36/beach-1236581_960_720.jpg"
+            src="https://cdn.pixabay.com/photo/2017/04/01/21/06/portrait-2194457_960_720.jpg"
             alt="First slide"
           />
           <Carousel.Caption>
-            <h3>Let's Discover the Country together!</h3>
+            <h3>Best Stylies Sunglass in town!</h3>
           </Carousel.Caption>
         </Carousel.Item>
         <Carousel.Item interval={500}>
           <img
             className="d-block w-100 carousel-img"
-            src="https://cdn.pixabay.com/photo/2021/08/14/04/15/mountains-6544522_960_720.jpg"
+            src="https://cdn.pixabay.com/photo/2016/11/29/01/33/beach-1866568_960_720.jpg"
             alt="Second slide"
           />
           <Carousel.Caption>
-            <h3>Let's Discover the Country together!</h3>
+            <h3>Best Stylies Sunglass in town!</h3>
           </Carousel.Caption>
         </Carousel.Item>
         <Carousel.Item>
           <img
             className="d-block w-100 carousel-img"
-            src="https://cdn.pixabay.com/photo/2015/10/30/20/13/sunrise-1014712_960_720.jpg"
+            src="https://cdn.pixabay.com/photo/2016/03/27/19/33/sunset-1283872_960_720.jpg"
             alt="Third slide"
           />
           <Carousel.Caption>
-            <h3>Let's Discover the Country together!</h3>
+            <h3>Best Stylies Sunglass in town!</h3>
           </Carousel.Caption>
         </Carousel.Item>
       </Carousel>
       <div className="mt-3">
-        <h1>Main Offering Plans</h1>
-        <p>We are offering so many services.</p>
+        <h1>See Our Glasses</h1>
+        <p>We are offering so many attractive glasses.</p>
       </div>
 
       {services &&
-        services.map((item, i) => (
+        services.slice(0, 6).map((item, i) => (
           <>
             <Container key={i}>
               <Row className="pb-4">
@@ -78,7 +78,7 @@ function Home() {
                     </ListGroup.Item>
                     <ListGroup.Item>
                       <p style={{ float: "left" }}>
-                        Ticket Price: {item.serviceCharge}
+                        Price: {item.serviceCharge}
                       </p>
                     </ListGroup.Item>
                     <ListGroup.Item>
@@ -89,7 +89,7 @@ function Home() {
                   </ListGroup>
                   <div className="add-member-btn">
                     <Link to={`/service/${i}`}>
-                      <Button>Book Now</Button>
+                      <Button>Buy Now</Button>
                     </Link>
                   </div>
                 </Col>
@@ -97,28 +97,6 @@ function Home() {
             </Container>
           </>
         ))}
-      <Container className="square border border-dark why-choose-us">
-        <Row>
-          <Col sm={12} md={6} lg={6} xl={6}>
-            <h2 className="chooseus-header">
-              <span className="why">I Why</span>{" "}
-              <span className="choose">Choose Us</span>
-            </h2>
-            <h2 className="our-goal">
-              Our goal is to sure<br></br> safety travel among the country.
-            </h2>
-            <Button variant="outline-warning" className="button-choose">
-              More about Travelling
-            </Button>
-          </Col>
-          <Col sm={12} md={6} lg={6} xl={6}>
-            <Image
-              className="why-choose-us-img"
-              src="https://cdn.pixabay.com/photo/2021/09/07/11/53/car-6603726_960_720.jpg"
-            />
-          </Col>
-        </Row>
-      </Container>
 
       <Container className="square border support">
         <Row>

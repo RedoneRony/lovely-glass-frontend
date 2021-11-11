@@ -4,7 +4,7 @@ import { Navbar, Container, Nav, Button } from "react-bootstrap";
 import { LinkContainer } from "react-router-bootstrap";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBus } from "@fortawesome/free-solid-svg-icons";
+import { faGlasses } from "@fortawesome/free-solid-svg-icons";
 import useAuth from "../../hooks/useAuth";
 import "./Header.css";
 function Header() {
@@ -17,17 +17,28 @@ function Header() {
         <Container>
           <LinkContainer to="/">
             <Navbar.Brand className="navbar-brand">
-              <FontAwesomeIcon icon={faBus} />
-              Goer Travel
+              <FontAwesomeIcon icon={faGlasses} />
+              Lovely Glass
             </Navbar.Brand>
           </LinkContainer>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
-            <Nav className="me-auto nav">
-              <NavLink to="/">Home</NavLink>
-              <NavLink to="/myorder">My Order</NavLink>
-              <NavLink to="/manageallorder">Manage all Order </NavLink>
-              <NavLink to="/addservice">Add a New Tour Plan </NavLink>
+            <Nav className="ms-auto float-right nav">
+              <NavLink to="/" className="navLink">
+                Home
+              </NavLink>
+              <NavLink to="/myorder" className="navLink">
+                My Order
+              </NavLink>
+              <NavLink to="/manageallorder" className="navLink">
+                Manage all Order
+              </NavLink>
+              <NavLink to="/services" className="navLink">
+                More Sunglasses
+              </NavLink>
+              <NavLink to="/addservice" className="navLink">
+                Add a New Tour Plan
+              </NavLink>
               {user?.providerData ? (
                 <Button onClick={logout} variant="light">
                   Logout
@@ -35,12 +46,12 @@ function Header() {
               ) : (
                 <Nav>
                   <Nav.Item className="nav-itemlist">
-                    <Nav.Link as={Link} to="/login">
+                    <Nav.Link as={Link} to="/login" className="navLink">
                       Login
                     </Nav.Link>
                   </Nav.Item>
                   <Nav.Item>
-                    <Nav.Link as={Link} to="/register">
+                    <Nav.Link as={Link} to="/register" className="navLink">
                       Register
                     </Nav.Link>
                   </Nav.Item>

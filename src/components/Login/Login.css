@@ -1,6 +1,7 @@
 /* login style  */
 .login {
-  padding: 50px;
-  margin: 100px;
-  overflow: hidden;
+  /* padding: 50px; */
+  /* margin: 100px; */
+  /* overflow: hidden; */
+  margin-top: 10rem !important;
 }

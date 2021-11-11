@@ -15,7 +15,7 @@ function MyOrder() {
   const [myOrder, setMyOrder] = useState("");
   console.log(myOrder);
   useEffect(() => {
-    fetch("https://scary-barrow-52373.herokuapp.com/order/")
+    fetch("http://localhost:5000/order/")
       .then((response) => response.json())
       .then((data) => {
         setMyOrder(data);

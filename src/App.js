@@ -13,6 +13,7 @@ import Login from "./components/Login/Login";
 import Registration from "./components/Registration/Registration";
 import AddService from "./components/AddService/AddService";
 import UpdateStatus from "./components/UpdateStatus/UpdateStatus";
+import Services from "./components/Services/Services";
 
 function App() {
   return (
@@ -36,6 +37,7 @@ function App() {
             <PrivateRoute path="/service/:serviceId">
               <Service></Service>
             </PrivateRoute>
+
             <PrivateRoute path="/myorder">
               <MyOrder></MyOrder>
             </PrivateRoute>
@@ -48,7 +50,11 @@ function App() {
             <PrivateRoute path="/order/update/:id">
               <UpdateStatus></UpdateStatus>
             </PrivateRoute>
+            <Route path="/services">
+              <Services></Services>
+            </Route>
             {/* not found page route */}
+
             <Route path="*">
               <NotFound></NotFound>
             </Route>

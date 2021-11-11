@@ -18,7 +18,7 @@ function AddService() {
   const [services, setServices] = useState([]);
 
   useEffect(() => {
-    fetch("https://scary-barrow-52373.herokuapp.com/addService/")
+    fetch("http://localhost:5000/addService/")
       .then((response) => response.json())
       .then((data) => {
         setServices(data);
@@ -34,7 +34,7 @@ function AddService() {
 
     const newUser = { serviceName, image, serviceCharge, serviceDescription };
 
-    fetch("https://scary-barrow-52373.herokuapp.com/addService", {
+    fetch("http://localhost:5000/addService", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -57,10 +57,10 @@ function AddService() {
       </div>
       <Form onSubmit={handleAddService} className="addServiceForm">
         <Form.Group className="mb-3" controlId="formBasicEmail">
-          <Form.Label>Name</Form.Label>
+          <Form.Label> Sunglass Name</Form.Label>
           <Form.Control
             type="text"
-            placeholder="Enter Plan Name"
+            placeholder="Enter Name"
             ref={serviceNameRef}
             required
           />
@@ -71,10 +71,10 @@ function AddService() {
         </Form.Group>
 
         <Form.Group className="mb-3" controlId="formBasicPassword">
-          <Form.Label>Ticket Cost</Form.Label>
+          <Form.Label>Price</Form.Label>
           <Form.Control
             type="text"
-            placeholder="Total Cost"
+            placeholder="price"
             ref={serviceChargeRef}
             required
           />

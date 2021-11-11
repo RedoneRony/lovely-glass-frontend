@@ -6,6 +6,7 @@
   width: 100%;
   text-align: center;
 }
+
 .right-column {
   padding-top: 50px;
   width: 100%;
@@ -29,4 +30,16 @@
 .service-img {
   width: 80%;
   padding-top: 50px;
+}
+.placeorder {
+  padding-bottom: 12rem !important;
+}
+.placeServiceForm {
+  height: 600px;
+  padding-top: 100px;
+  align-items: center;
+  justify-content: center;
+  margin: 50px;
+  padding-left: 20px;
+  padding-right: 20px;
 }

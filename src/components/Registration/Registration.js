@@ -1,5 +1,12 @@
 import React from "react";
-import { Col, Form, FormControl, InputGroup, Row } from "react-bootstrap";
+import {
+  Col,
+  Form,
+  FormControl,
+  InputGroup,
+  Row,
+  Container,
+} from "react-bootstrap";
 import { NavLink } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
 import "./Register.css";
@@ -7,11 +14,12 @@ function Register() {
   // register page design
   const { getName, getPhoto, signup, getEmail, getPassword, error } = useAuth();
   return (
-    <div className="text-center text-white registration">
-      <h2 className="text-warning">Please Sign Up </h2>
-      <p className="mt-2">Sign Up with Name, Email, Password & photo</p>
-      <p className="text-danger text-center">{error}</p>
-      <div className="w-25 mx-auto">
+    <div className="registration">
+      <Container>
+        <h2 className="text-warning text-center">Please Sign Up </h2>
+        <p className="mt-2">Sign Up with Name, Email, Password & photo</p>
+        <p className="text-danger text-center">{error}</p>
+
         <Form onSubmit={signup}>
           <Row>
             <Col className="text-start">
@@ -30,6 +38,7 @@ function Register() {
               </InputGroup>
             </Col>
           </Row>
+
           <Row>
             <Col className="text-start">
               <Form.Label htmlFor="email" visuallyHidden>
@@ -86,12 +95,13 @@ function Register() {
             Sign Up
           </button>
         </Form>
-      </div>
-      <p className="mt-2">
-        <NavLink className="text-decoration-none" to="/login">
-          Already have account ? Please Login!
-        </NavLink>
-      </p>
+
+        <p className="mt-2">
+          <NavLink className="text-decoration-none" to="/login">
+            Already have account ? Please Login!
+          </NavLink>
+        </p>
+      </Container>
     </div>
   );
 }

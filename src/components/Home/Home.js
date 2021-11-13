@@ -10,16 +10,24 @@ import {
   ListGroup,
 } from "react-bootstrap";
 import { Link } from "react-router-dom";
-
+import ReactStarRating from "react-star-ratings-component";
 function Home() {
   const [services, setServices] = useState([]);
+  const [review, setReview] = useState([]);
 
-  console.log(services);
+  console.log(review);
   useEffect(() => {
     fetch("http://localhost:5000/addService/")
       .then((response) => response.json())
       .then((data) => {
         setServices(data);
+      });
+  }, []);
+  useEffect(() => {
+    fetch("http://localhost:5000/review/")
+      .then((response) => response.json())
+      .then((data) => {
+        setReview(data);
       });
   }, []);
 
@@ -92,6 +100,49 @@ function Home() {
                       <Button>Buy Now</Button>
                     </Link>
                   </div>
+                </Col>
+              </Row>
+            </Container>
+          </>
+        ))}
+      <h1
+        style={{ textAlign: "center", fontWeight: "bold", paddingTop: "50px" }}
+      >
+        Customer Product Rating
+      </h1>
+      {review &&
+        review.map((item, i) => (
+          <>
+            <Container key={i}>
+              <Row className="pb-4">
+                <Col sm={12} md={6} lg={6} xl={6} className="right-column">
+                  <ListGroup vertical>
+                    <ListGroup.Item>
+                      <h4> Customer Name: {item.username}</h4>
+                    </ListGroup.Item>
+                    <ListGroup.Item>
+                      <p style={{ float: "left" }}>
+                        Product Name: {item.productname}
+                      </p>
+                    </ListGroup.Item>
+                    <ListGroup.Item>
+                      <p style={{ float: "left" }}>
+                        Rating
+                        <ReactStarRating
+                          numberOfStar={5}
+                          numberOfSelectedStar={item.Rating}
+                          colorFilledStar="red"
+                          colorEmptyStar="black"
+                          starSize="20px"
+                          spaceBetweenStar="10px"
+                          disableOnSelect={false}
+                          onSelectStar={(val) => {
+                            console.log(val);
+                          }}
+                        />
+                      </p>
+                    </ListGroup.Item>
+                  </ListGroup>
                 </Col>
               </Row>
             </Container>

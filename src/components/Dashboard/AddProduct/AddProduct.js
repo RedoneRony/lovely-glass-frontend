@@ -7,10 +7,11 @@ import {
   Row,
   Col,
   Image,
+  Table,
 } from "react-bootstrap";
-import "./AddService.css";
+import "./AddProduct.css";
 import { Link } from "react-router-dom";
-function AddService() {
+function AddProduct() {
   const serviceNameRef = useRef();
   const serviceChargeRef = useRef();
   const serviceDescriptionRef = useRef();
@@ -50,10 +51,32 @@ function AddService() {
       });
     e.preventDefault();
   };
+
+  // DELETE AN Order
+  const handleDeleteProduct = (id) => {
+    const proceed = window.confirm("Are you sure, you want to delete?");
+    if (proceed) {
+      const url = `http://localhost:5000/service/${id}`;
+      fetch(url, {
+        method: "DELETE",
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          if (data.deletedCount > 0) {
+            alert("deleted successfully");
+            const remainingOrders = services.filter(
+              (order) => order._id !== id
+            );
+            setServices(remainingOrders);
+          }
+        });
+    }
+  };
+
   return (
     <div>
       <div>
-        <h2>Add a New Plan</h2>
+        <h2>Add a new service</h2>
       </div>
       <Form onSubmit={handleAddService} className="addServiceForm">
         <Form.Group className="mb-3" controlId="formBasicEmail">
@@ -94,42 +117,35 @@ function AddService() {
         </Button>
       </Form>
 
-      {services &&
-        services.map((item, i) => (
-          <>
-            <Container key={i}>
-              <Row className="pb-4">
-                <Col sm={12} md={6} lg={6} xl={6}>
-                  <Image className="service-img" src={item.image} />
-                </Col>
-                <Col sm={12} md={6} lg={6} xl={6} className="right-column">
-                  <ListGroup vertical>
-                    <ListGroup.Item>
-                      <h2>{item.serviceName}</h2>
-                    </ListGroup.Item>
-                    <ListGroup.Item>
-                      <p style={{ float: "left" }}>
-                        Ticket Price: {item.serviceCharge}
-                      </p>
-                    </ListGroup.Item>
-                    <ListGroup.Item>
-                      <p style={{ float: "left" }}>
-                        Description : {item.serviceDescription}
-                      </p>
-                    </ListGroup.Item>
-                  </ListGroup>
-                  <div className="add-member-btn">
-                    <Link to={`/service/${i}`}>
-                      <Button>Book Now</Button>
-                    </Link>
-                  </div>
-                </Col>
-              </Row>
-            </Container>
-          </>
-        ))}
+      <Table striped bordered hover responsive>
+        <thead>
+          <tr>
+            <th>Image</th>
+            <th>Product Name</th>
+            <th>Price</th>
+            <th> Description</th>
+            <th>Delete Product</th>
+          </tr>
+        </thead>
+        <tbody>
+          {services &&
+            services.map((item, i) => (
+              <tr>
+                <td>{item.image}</td>
+                <td>{item.serviceName}</td>
+                <td>{item.serviceCharge}</td>
+                <td>{item.serviceDescription}</td>
+                <td>
+                  <button onClick={() => handleDeleteProduct(item._id)}>
+                    X
+                  </button>
+                </td>
+              </tr>
+            ))}
+        </tbody>
+      </Table>
     </div>
   );
 }
 
-export default AddService;
+export default AddProduct;

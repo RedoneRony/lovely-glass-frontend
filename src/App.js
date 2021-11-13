@@ -4,17 +4,13 @@ import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
 import Home from "./components/Home/Home";
 import Service from "./components/Service/Service";
-import ManageAllOrder from "./components/ManageAllOrder/ManageAllOrder";
-import MyOrder from "./components/MyOrder/MyOrder";
 import NotFound from "./components/NotFound/NotFound";
 import AuthProvider from "./context/AuthProvider";
 import PrivateRoute from "./components/PrivateRoute/PrivateRoute";
 import Login from "./components/Login/Login";
 import Registration from "./components/Registration/Registration";
-import AddService from "./components/AddService/AddService";
-import UpdateStatus from "./components/UpdateStatus/UpdateStatus";
 import Services from "./components/Services/Services";
-
+import Dashboard from "./components/Dashboard/Dashboard/Dashboard";
 function App() {
   return (
     <div>
@@ -38,20 +34,24 @@ function App() {
               <Service></Service>
             </PrivateRoute>
 
-            <PrivateRoute path="/myorder">
+            {/* <PrivateRoute path="/myorder">
               <MyOrder></MyOrder>
-            </PrivateRoute>
-            <PrivateRoute path="/manageallorder">
+            </PrivateRoute> */}
+            {/* <PrivateRoute path="/manageallorder">
               <ManageAllOrder></ManageAllOrder>
-            </PrivateRoute>
-            <PrivateRoute path="/addservice">
+            </PrivateRoute> */}
+            {/* <PrivateRoute path="/addservice">
               <AddService></AddService>
-            </PrivateRoute>
-            <PrivateRoute path="/order/update/:id">
+            </PrivateRoute> */}
+            {/* <PrivateRoute path="/order/update/:id">
               <UpdateStatus></UpdateStatus>
-            </PrivateRoute>
+            </PrivateRoute> */}
             <Route path="/services">
               <Services></Services>
+            </Route>
+
+            <Route path="/dashboard">
+              <Dashboard />
             </Route>
             {/* not found page route */}
 

@@ -27,22 +27,19 @@ function Header() {
               <NavLink to="/" className="navLink">
                 Home
               </NavLink>
-              <NavLink to="/myorder" className="navLink">
-                My Order
-              </NavLink>
-              <NavLink to="/manageallorder" className="navLink">
-                Manage all Order
-              </NavLink>
+
               <NavLink to="/services" className="navLink">
                 More Sunglasses
               </NavLink>
-              <NavLink to="/addservice" className="navLink">
-                Add a New Tour Plan
-              </NavLink>
               {user?.providerData ? (
-                <Button onClick={logout} variant="light">
-                  Logout
-                </Button>
+                <div>
+                  <NavLink to="/dashboard" className="navLink">
+                    Dashboard
+                  </NavLink>
+                  <Button onClick={logout} variant="light">
+                    Logout
+                  </Button>
+                </div>
               ) : (
                 <Nav>
                   <Nav.Item className="nav-itemlist">

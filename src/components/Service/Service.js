@@ -14,6 +14,7 @@ import useAuth from "../../hooks/useAuth";
 function Service({ history }) {
   const { serviceId } = useParams();
   const [servicePage, setServicePage] = useState([]);
+  console.log(servicePage);
   const [individualService, setIndividualService] = useState([]);
   const [place, setPlace] = useState("");
 

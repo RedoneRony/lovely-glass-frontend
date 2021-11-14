@@ -33,26 +33,13 @@ function App() {
             <PrivateRoute path="/service/:serviceId">
               <Service></Service>
             </PrivateRoute>
-
-            {/* <PrivateRoute path="/myorder">
-              <MyOrder></MyOrder>
-            </PrivateRoute> */}
-            {/* <PrivateRoute path="/manageallorder">
-              <ManageAllOrder></ManageAllOrder>
-            </PrivateRoute> */}
-            {/* <PrivateRoute path="/addservice">
-              <AddService></AddService>
-            </PrivateRoute> */}
-            {/* <PrivateRoute path="/order/update/:id">
-              <UpdateStatus></UpdateStatus>
-            </PrivateRoute> */}
             <Route path="/services">
               <Services></Services>
             </Route>
 
-            <Route path="/dashboard">
+            <PrivateRoute path="/dashboard">
               <Dashboard />
-            </Route>
+            </PrivateRoute>
             {/* not found page route */}
 
             <Route path="*">

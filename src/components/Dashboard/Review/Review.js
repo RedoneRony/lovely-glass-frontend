@@ -9,7 +9,7 @@ function Review() {
   const [product, setProductName] = useState("");
   console.log(services);
   useEffect(() => {
-    fetch("http://localhost:5000/addService/")
+    fetch("https://fierce-beach-56324.herokuapp.com/addService/")
       .then((response) => response.json())
       .then((data) => {
         setServices(data);
@@ -27,7 +27,7 @@ function Review() {
       Rating,
     };
     console.log(newReview);
-    fetch("http://localhost:5000/review/", {
+    fetch("https://fierce-beach-56324.herokuapp.com/review/", {
       method: "POST",
       headers: {
         "content-type": "application/json",

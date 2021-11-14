@@ -6,12 +6,7 @@ import CssBaseline from "@mui/material/CssBaseline";
 import Divider from "@mui/material/Divider";
 import Drawer from "@mui/material/Drawer";
 import IconButton from "@mui/material/IconButton";
-import InboxIcon from "@mui/icons-material/MoveToInbox";
-import List from "@mui/material/List";
-import ListItem from "@mui/material/ListItem";
-import ListItemIcon from "@mui/material/ListItemIcon";
-import ListItemText from "@mui/material/ListItemText";
-import MailIcon from "@mui/icons-material/Mail";
+
 import MenuIcon from "@mui/icons-material/Menu";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
@@ -23,9 +18,10 @@ import MakeAdmin from "../MakeAdmin/MakeAdmin";
 import Payment from "../Payment/Payment";
 import ManageAllOrder from "./../ManageAllOrder/ManageAllOrder";
 import Review from "./../Review/Review";
-// import AdminRoute from "../../Login/AdminRoute/AdminRoute";
 import MyOrder from "./../MyOrder/MyOrder";
 import AddProduct from "../AddProduct/AddProduct";
+import PrivateRoute from "../../PrivateRoute/PrivateRoute";
+import AdminRoute from "../../AdminRoute/AdminRoute";
 import "./Dashboard.css";
 const drawerWidth = 200;
 function Dashboard(props) {
@@ -49,36 +45,40 @@ function Dashboard(props) {
       <Link to={`${url}`}>
         <Button color="inherit">Dashboard</Button>
       </Link>
-      {/* {admin && ( */}
-      <Box>
-        <Link to={`${url}/makeAdmin`}>
-          <Button color="inherit">Make Admin</Button>
-        </Link>
-        <Link to={`${url}/manageallorder`}>
-          <Button color="inherit">Manage All Order</Button>
-        </Link>
-        <Link to={`${url}/myorder`}>
-          <Button color="inherit">My Order</Button>
-        </Link>
-        <br />
-        <Link to={`${url}/addproduct`}>
-          <Button color="inherit">Manage product</Button>
-        </Link>
-        <br />
-        <Link to={`${url}/payment`}>
-          <Button color="inherit">Payment System</Button>
-        </Link>
-        <Link to={`${url}/review`}>
-          <Button color="inherit">Review</Button>
-        </Link>
-        <br />
-        <Link to="/">
-          <Button color="inherit" onClick={logout}>
-            Log Out
-          </Button>
-        </Link>
-      </Box>
-      {/* )} */}
+
+      {admin && (
+        <Box>
+          <Link to={`${url}/makeAdmin`}>
+            <Button color="inherit">Make Admin</Button>
+          </Link>
+          <Link to={`${url}/manageallorder`}>
+            <Button color="inherit">Manage All Order</Button>
+          </Link>
+          <br />
+          <Link to={`${url}/addproduct`}>
+            <Button color="inherit">Manage product</Button>
+          </Link>
+          <br />
+        </Box>
+      )}
+      {!admin && (
+        <Box>
+          <Link to={`${url}/myorder`}>
+            <Button color="inherit">My Order</Button>
+          </Link>
+          <Link to={`${url}/payment`}>
+            <Button color="inherit">Payment System</Button>
+          </Link>
+          <Link to={`${url}/review`}>
+            <Button color="inherit">Review</Button>
+          </Link>
+        </Box>
+      )}
+      <Link to="/">
+        <Button color="inherit" onClick={logout}>
+          Log Out
+        </Button>
+      </Link>
       {/* <List>
         {["Inbox", "Starred", "Send email", "Drafts"].map((text, index) => (
           <ListItem button key={text}>
@@ -171,25 +171,25 @@ function Dashboard(props) {
           <Route exact path={path}>
             <DashboardHome />
           </Route>
-          <Route path={`${path}/makeAdmin`}>
+          <AdminRoute path={`${path}/makeAdmin`}>
             <MakeAdmin />
-          </Route>
-          <Route path={`${path}/payment`}>
-            <Payment />
-          </Route>
-          <Route path={`${path}/manageallorder`}>
+          </AdminRoute>
+          <AdminRoute path={`${path}/manageallorder`}>
             <ManageAllOrder />
-          </Route>
-          <Route path={`${path}/myorder`}>
-            <MyOrder />
-          </Route>
-
-          <Route path={`${path}/addproduct`}>
+          </AdminRoute>
+          <AdminRoute path={`${path}/addproduct`}>
             <AddProduct />
-          </Route>
-          <Route path={`${path}/review`}>
+          </AdminRoute>
+
+          {/* <PrivateRoute path={`${path}/review`}>
             <Review />
-          </Route>
+          </PrivateRoute>
+          <PrivateRoute path={`${path}/payment`}>
+            <Payment />
+          </PrivateRoute>
+          <PrivateRoute path={`${path}/myorder`}>
+            <MyOrder />
+          </PrivateRoute> */}
         </Switch>
       </Box>
     </Box>

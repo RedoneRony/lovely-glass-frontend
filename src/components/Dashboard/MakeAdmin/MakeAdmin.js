@@ -4,18 +4,17 @@ import useAuth from "./../../../hooks/useAuth";
 
 const MakeAdmin = () => {
   const [email, setEmail] = useState("");
+
   const [success, setSuccess] = useState(false);
-  const { token } = useAuth();
 
   const handleOnBlur = (e) => {
     setEmail(e.target.value);
   };
   const handleAdminSubmit = (e) => {
     const user = { email };
-    fetch("http://localhost:5000/users/admin", {
+    fetch("https://fierce-beach-56324.herokuapp.com/users/admin", {
       method: "PUT",
       headers: {
-        authorization: `Bearer ${token}`,
         "content-type": "application/json",
       },
       body: JSON.stringify(user),
@@ -25,6 +24,7 @@ const MakeAdmin = () => {
         if (data.modifiedCount) {
           console.log(data);
           setSuccess(true);
+          e.target.reset();
         }
       });
 

@@ -15,16 +15,11 @@ function ManageAllOrder() {
   const [allOrder, setAllOrder] = useState("");
   console.log(allOrder);
   const [order, setOrder] = useState({});
+  const [updateStatus, setUpdateStatus] = useState("Approved");
   console.log(order);
-  // useEffect(() => {
-  //   const url = `http://localhost:5000/order/${id}`;
-  //   fetch(url)
-  //     .then((res) => res.json())
-  //     .then((data) => setOrder(data));
-  // }, []);
 
   useEffect(() => {
-    fetch("http://localhost:5000/order/")
+    fetch("https://fierce-beach-56324.herokuapp.com/order/")
       .then((response) => response.json())
       .then((data) => {
         setAllOrder(data);
@@ -34,7 +29,7 @@ function ManageAllOrder() {
   const handleDeleteOrder = (id) => {
     const proceed = window.confirm("Are you sure, you want to delete?");
     if (proceed) {
-      const url = `http://localhost:5000/order/${id}`;
+      const url = `https://fierce-beach-56324.herokuapp.com/order/${id}`;
       fetch(url, {
         method: "DELETE",
       })
@@ -54,9 +49,8 @@ function ManageAllOrder() {
   const handleUpdateUser = (e, id) => {
     const specific_value = allOrder.find((element) => element._id === id);
     console.log(specific_value);
-    const url = `http://localhost:5000/order/${id}`;
+    const url = `https://fierce-beach-56324.herokuapp.com/order/${id}`;
     console.log(url);
-    const updatedStatus = "Approved";
     const updated = {
       Address: specific_value.Address,
       costbook: specific_value.costbook,
@@ -65,7 +59,7 @@ function ManageAllOrder() {
       useremail: specific_value.useremail,
       phonenumber: specific_value.phonenumber,
       servicedescription: specific_value.servicedescription,
-      status: updatedStatus,
+      status: updateStatus,
       username: specific_value.username,
       _id: specific_value._id,
     };

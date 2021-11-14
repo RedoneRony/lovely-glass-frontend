@@ -14,17 +14,15 @@ import ReactStarRating from "react-star-ratings-component";
 function Home() {
   const [services, setServices] = useState([]);
   const [review, setReview] = useState([]);
-
-  console.log(review);
   useEffect(() => {
-    fetch("http://localhost:5000/addService/")
+    fetch("https://fierce-beach-56324.herokuapp.com/addService/")
       .then((response) => response.json())
       .then((data) => {
         setServices(data);
       });
   }, []);
   useEffect(() => {
-    fetch("http://localhost:5000/review/")
+    fetch("https://fierce-beach-56324.herokuapp.com/review/")
       .then((response) => response.json())
       .then((data) => {
         setReview(data);

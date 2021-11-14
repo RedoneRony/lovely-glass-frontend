@@ -9,7 +9,6 @@ import useAuth from "../../hooks/useAuth";
 import "./Header.css";
 function Header() {
   const { user, logout } = useAuth();
-  console.log(user);
   return (
     // home page design
     <div className="header w-100">

@@ -15,7 +15,7 @@ function MyOrder() {
   const [myOrder, setMyOrder] = useState("");
   console.log(myOrder);
   useEffect(() => {
-    fetch("http://localhost:5000/order/")
+    fetch("https://fierce-beach-56324.herokuapp.com/order/")
       .then((response) => response.json())
       .then((data) => {
         setMyOrder(data);
@@ -26,7 +26,7 @@ function MyOrder() {
   const handleDeleteOrder = (id) => {
     const proceed = window.confirm("Are you sure, you want to delete?");
     if (proceed) {
-      const url = `http://localhost:5000/order/${id}`;
+      const url = `https://fierce-beach-56324.herokuapp.com/order/${id}`;
       fetch(url, {
         method: "DELETE",
       })

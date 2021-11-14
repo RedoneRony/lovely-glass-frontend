@@ -14,7 +14,7 @@ function Services() {
 
   console.log(services);
   useEffect(() => {
-    fetch("http://localhost:5000/addService/")
+    fetch("https://fierce-beach-56324.herokuapp.com/addService/")
       .then((response) => response.json())
       .then((data) => {
         setServices(data);

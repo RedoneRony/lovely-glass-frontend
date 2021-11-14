@@ -13,6 +13,7 @@ function Login() {
     getEmail,
     getPassword,
     error,
+    saveUser,
   } = useAuth();
 
   const history = useHistory();
@@ -83,6 +84,7 @@ function Login() {
             signInUsingGoogle()
               .then((result) => {
                 setUser(result.user);
+                saveUser(result.user.email, "PUT");
                 history.push(redirect);
               })
               .catch((err) => {

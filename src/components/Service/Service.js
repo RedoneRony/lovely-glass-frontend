@@ -31,7 +31,7 @@ function Service({ history }) {
   const serviceDescription = useRef();
 
   useEffect(() => {
-    fetch("http://localhost:5000/addService/")
+    fetch("https://fierce-beach-56324.herokuapp.com/addService/")
       .then((response) => response.json())
       .then((data) => {
         setServicePage(data);
@@ -66,7 +66,7 @@ function Service({ history }) {
       status,
     };
 
-    fetch("http://localhost:5000/order", {
+    fetch("https://fierce-beach-56324.herokuapp.com/order", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -171,7 +171,11 @@ function Service({ history }) {
           </Form.Group>
           <Form.Group className="mb-3" controlId="formBasicPassword">
             <Form.Label>Phone Number</Form.Label>
-            <Form.Control type="text" placeholder="Cost" ref={phoneNumber} />
+            <Form.Control
+              type="text"
+              placeholder="Phone Number"
+              ref={phoneNumber}
+            />
           </Form.Group>
 
           <Form.Group className="mb-3" controlId="formBasicPassword">

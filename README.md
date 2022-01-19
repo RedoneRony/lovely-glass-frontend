@@ -1,6 +1,6 @@
 It is mainly a Sunglass sales related site.
 
-project link: https://lovely-glass.web.app/
+project link: https://lovely-glass-cdf6e.web.app/
 
 Technology used: React, Bootstrap,MaterialUI React Router, Firebase, fontawesome
 
